@@ -5,6 +5,7 @@ This repository generates static JSON files with securities quotes from differen
 They are updated daily and available under the `https://enrichman.github.io/portfolio-performance/json/<ISIN>.json` URL.
 
 Example: https://enrichman.github.io/portfolio-performance/json/IT0005532723.json
+(> https://shrike78.github.io/portfolio-performance/json/XS1967674521.json )
 
 ## Add a quote
 
