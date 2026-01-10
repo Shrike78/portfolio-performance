@@ -1,15 +1,16 @@
 # portfolio-performance
 
+Original prject by enrichman ((https://github.com/enrichman/portfolio-performance/)
+
 This repository generates static JSON files with securities quotes from different sources. These quotes can be added easily in Portfolio Performance.
 
-They are updated daily and available under the `https://enrichman.github.io/portfolio-performance/json/<ISIN>.json` URL.
+They are updated daily and available under the `https://shrike78.github.io/portfolio-performance/json/<ISIN>.json` URL.
 
-Example: https://enrichman.github.io/portfolio-performance/json/IT0005532723.json
-(> https://shrike78.github.io/portfolio-performance/json/XS1967674521.json )
+Example: https://shrike78.github.io/portfolio-performance/json/XS1967674521.json
 
 ## Add a quote
 
-If a quote is not present it needs to be added in the [`securities.csv`](https://github.com/enrichman/portfolio-performance/blob/main/securities.csv). It needs the ISIN, a Name, and a "loader". If the loader does not exists already it needs to be implemented.
+If a quote is not present it needs to be added in the [`securities.csv`](https://github.com/shrike78/portfolio-performance/blob/main/securities.csv). It needs the ISIN, a Name, and a "loader". If the loader does not exists already it needs to be implemented.
 
 ## How To add a quote to Portfolio Performance
 
