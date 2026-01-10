@@ -10,13 +10,13 @@ import (
 	"time"
 
 	"github.com/charmbracelet/log"
-	"github.com/enrichman/portfolio-perfomance/pkg/security"
-	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/borsaitaliana"
-	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/fondidoc"
-	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/fonte"
-	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/priamo"
-	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/raiffeisench"
-	"github.com/enrichman/portfolio-perfomance/pkg/security/loaders/secondapensione"
+	"github.com/shrike78/portfolio-perfomance/pkg/security"
+	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/borsaitaliana"
+	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/fondidoc"
+	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/fonte"
+	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/priamo"
+	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/raiffeisench"
+	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/secondapensione"
 )
 
 func main() {

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/enrichman/portfolio-perfomance/pkg/security"
 	"github.com/gocolly/colly/v2"
+	"github.com/shrike78/portfolio-perfomance/pkg/security"
 )
 
 const (
