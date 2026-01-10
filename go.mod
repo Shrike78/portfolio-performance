@@ -1,4 +1,4 @@
-module github.com/Shrike78/portfolio-perfomance
+module github.com/enrichman/portfolio-perfomance
 
 go 1.20
 
