@@ -132,7 +132,7 @@ func (s *SecondaPensione) LoadQuotes() ([]security.Quote, error) {
 
 	// Cookies from your curl -b '<cookie string>'
 	// You can set the Cookie header directly (works fine for quick replication).
-	req.Header.Set("Cookie", `_pcid=%7B%22browserId%22%3A%22mgbwbkrzgyqgj7mi%22%2C%22_t%22%3A%22mw0de85e%7Cmgbwbl1e%22%7D; _pctx=%7Bu%7DN4IgrgzgpgThIC4B2YA2qA05owMoBcBDfSREQpAeyRCwgEt8oBJAE0RXSwH18yBbAO4AGVlAAcAVigAffgHMARoMWoAjFBABfIA; cookie-agreed-version=1.0.0; amundi_allow_tracking=true; cookie-agreed-categories=["necessary"]; pa_privacy=%22optout%22; cookie-agreed=2; banner_context=amundi-ita-it-retail-secondapensione`)
+	//req.Header.Set("Cookie", `_pcid=%7B%22browserId%22%3A%22mgbwbkrzgyqgj7mi%22%2C%22_t%22%3A%22mw0de85e%7Cmgbwbl1e%22%7D; _pctx=%7Bu%7DN4IgrgzgpgThIC4B2YA2qA05owMoBcBDfSREQpAeyRCwgEt8oBJAE0RXSwH18yBbAO4AGVlAAcAVigAffgHMARoMWoAjFBABfIA; cookie-agreed-version=1.0.0; amundi_allow_tracking=true; cookie-agreed-categories=["necessary"]; pa_privacy=%22optout%22; cookie-agreed=2; banner_context=amundi-ita-it-retail-secondapensione`)
 
 	// ===== Send request =====
 	resp, err := client.Do(req)
