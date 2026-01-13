@@ -53,7 +53,8 @@ func (s *Cometa) LoadQuotes() ([]security.Quote, error) {
 				return
 			}
 
-			date, err := time.Parse("02/2006", dateString)
+			dateString = fmt.Sprintf("15/%s", dateString)
+			date, err := time.Parse("02/01/2006", dateString)
 			if err != nil {
 				panic(err)
 			}
