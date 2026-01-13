@@ -1,6 +1,6 @@
 # portfolio-performance
 
-Original prject by enrichman ((https://github.com/enrichman/portfolio-performance/)
+Original prject by enrichman (https://github.com/enrichman/portfolio-performance/)
 
 This repository generates static JSON files with securities quotes from different sources. These quotes can be added easily in Portfolio Performance.
 
