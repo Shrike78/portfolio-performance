@@ -7,7 +7,6 @@
 
 "IT0005583486.MOT","Btp Valore Sc Mz30 Eur","borsaitaliana"
 
-
 # Certificates
 # For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
 
@@ -40,35 +39,3 @@
 "0P0000CWZR","Allianz Insieme - Linea Azionaria","allianzinsieme"
 "0P0000CWZ4","Allianz Insieme - Linea Bilanciata","allianzinsieme"
 "0P00017EGQ","Allianz Insieme - Linea Multi Asset","allianzinsieme"
-
-# Fon.Te.
-
-# "FP-FonTe-Dinamico","Fondo Pensione Fon.Te. - Comparto Dinamico","fonte"
-
-
-# Priamo
-
-# "FP-Priamo-BilanciatoSviluppo","Fondo Pensione Priamo - Comparto Bilanciato Sviluppo","priamo"
-# "FP-Priamo-GarantitoProtezione","Fondo Pensione Priamo - Comparto Garantito Protezione","priamo"
-# "FP-Priamo-BilanciatoPrudenza","Fondo Pensione Priamo - Comparto Bilanciato Prudenza","priamo"
-
-
-##################
-# Misc
-##################
-
-
-# "IT0000384641","Arca TE - Titoli Esteri","fondidoc"
-# "IT0001083424","Eurizon Azionario Internazionale Etico","fondidoc"
-# "IT0005640377","Eurizon Strategia Obbligazionaria 5a Ed.1-25 Dis","fondidoc"
-# "IT0005640393","Eurizon Strategia Obblig. HY 5a Ed.1-2025 Dis","fondidoc"
-
-
-########################
-# Raiffeisen Svizzera
-########################
-
-
-# "CH0025417491","Swisscanto (CH) Index Equity Fund Switzerland Total (II) FA CHF","raiffeisench"
-# "CH0561458610","Swisscanto (CH) Index Equity Fund Emerging Markets Responsible FA CHF","raiffeisench"
-# "CH1201876484","Swisscanto (CH) Index Fund III - Swisscanto (CH) Index Equity Fund MSCI (R) World ex Switzerland","raiffeisench"
