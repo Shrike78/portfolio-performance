@@ -15,39 +15,25 @@ import (
 	"github.com/shrike78/portfolio-perfomance/pkg/security"
 )
 
-/*
-Questo è un generico parser per le quotazioni su investing.com forzato a lavorare su Allianz Insieme.
-Si puo' generalizzare il supporto facendo in modo però di tradurre ISIN in Curr_Id
-*/
-
-var allianzInsiemeCurrId = map[string]string{
-	//flessibile
-	"0P0000CWYZ": "1078533",
-	//obbligazionaria breve termine
-	"0P00017EGO": "1078140",
-	//obbligazionaria lungo termine
-	"0P00017EGP": "1077906", //?
-	//obbligazionaria
-	"0P0000CX0R": "1078595", //?
-	//bilanciata
-	"0P0000CWZ4": "1078534",
-	//azionaria
-	"0P0000CWZR": "1078584",
-	//multiasset
-	"0P00017EGQ": "1077905", //?
+var isinToCurrId = map[string]string{
+	"0P0000CWYZ": "1078533", //flessibile
+	"0P00017EGO": "1078140", //obbligazionaria breve termine
+	"0P00017EGP": "1077906", //obbligazionaria lungo termine
+	"0P0000CX0R": "1078595", //obbligazionaria
+	"0P0000CWZ4": "1078534", //bilanciata
+	"0P0000CWZR": "1078584", //azionaria
+	"0P00017EGQ": "1077905", //multiasset
 }
 
 type AllianzInsieme struct {
-	name   string
-	isin   string
-	currId string
+	name string
+	isin string
 }
 
 func New(name, isin string) *AllianzInsieme {
 	return &AllianzInsieme{
-		name:   name,
-		isin:   isin,
-		currId: allianzInsiemeCurrId[isin],
+		name: name,
+		isin: isin,
 	}
 }
 
@@ -59,6 +45,20 @@ func (e *AllianzInsieme) ISIN() string {
 	return e.isin
 }
 
+/*
+this is a generic "investing.com" loader logic with following parametrization:
+
+	Investing {
+		name string
+		currId string
+		st_date string
+		end_date string
+		interval_sec string
+	}
+
+	based on interval_sec (daily, weekly or monthly) it changes the data retrieval logic; for monthly retrieval it's important
+	to define a reference day (can be another parameter? or fixed at half month?)
+*/
 func (s *AllianzInsieme) LoadQuotes() ([]security.Quote, error) {
 
 	endpoint := "https://m.it.investing.com/instrument/services/getHistoricalData"
@@ -67,7 +67,7 @@ func (s *AllianzInsieme) LoadQuotes() ([]security.Quote, error) {
 	// Dates as they appear in your curl (DD/MM/YYYY)
 	form := url.Values{}
 	// curr_id is the real identifier of the fund
-	form.Set("curr_id", s.currId)
+	form.Set("curr_id", isinToCurrId[s.ISIN()])
 	form.Set("st_date", "25/01/2016")
 	form.Set("end_date", "14/01/2026")
 	form.Set("interval_sec", "Monthly")
