@@ -12,12 +12,6 @@ import (
 	"github.com/shrike78/portfolio-perfomance/pkg/security"
 )
 
-/*
-const (
-	SecondaPensioneUrlTemplate = "https://www.secondapensione.it/ezjscore/call/ezjscamundibuzz::sfForwardFront::paramsList=service=ProxyProductSheetV3Front&routeId=_en-GB_879_%s_tab_3"
-)
-*/
-
 type SecondaPensione struct {
 	name string
 	isin string
@@ -39,6 +33,11 @@ func (e *SecondaPensione) ISIN() string {
 }
 
 /*
+
+const (
+	SecondaPensioneUrlTemplate = "https://www.secondapensione.it/ezjscore/call/ezjscamundibuzz::sfForwardFront::paramsList=service=ProxyProductSheetV3Front&routeId=_en-GB_879_%s_tab_3"
+)
+
 func (s *SecondaPensione) LoadQuotes() ([]security.Quote, error) {
 	c := colly.NewCollector()
 
@@ -130,10 +129,6 @@ func (s *SecondaPensione) LoadQuotes() ([]security.Quote, error) {
 	req.Header.Set("sec-ch-ua-mobile", "?1")
 	req.Header.Set("sec-ch-ua-platform", `"Android"`)
 
-	// Cookies from your curl -b '<cookie string>'
-	// You can set the Cookie header directly (works fine for quick replication).
-	//req.Header.Set("Cookie", `_pcid=%7B%22browserId%22%3A%22mgbwbkrzgyqgj7mi%22%2C%22_t%22%3A%22mw0de85e%7Cmgbwbl1e%22%7D; _pctx=%7Bu%7DN4IgrgzgpgThIC4B2YA2qA05owMoBcBDfSREQpAeyRCwgEt8oBJAE0RXSwH18yBbAO4AGVlAAcAVigAffgHMARoMWoAjFBABfIA; cookie-agreed-version=1.0.0; amundi_allow_tracking=true; cookie-agreed-categories=["necessary"]; pa_privacy=%22optout%22; cookie-agreed=2; banner_context=amundi-ita-it-retail-secondapensione`)
-
 	// ===== Send request =====
 	resp, err := client.Do(req)
 	if err != nil {
@@ -154,15 +149,6 @@ func (s *SecondaPensione) LoadQuotes() ([]security.Quote, error) {
 	if err != nil {
 		panic(fmt.Errorf("reading body: %w", err))
 	}
-
-	/*
-		// Optional: pretty-print the whole JSON response
-		var pretty any
-		if err := json.Unmarshal(buf, &pretty); err == nil {
-			out, _ := json.MarshalIndent(pretty, "", "  ")
-			fmt.Printf("\nFull JSON response (pretty):\n%s\n", string(out))
-		}
-	*/
 
 	type NavPoint struct {
 		Date  string  `json:"date"`
