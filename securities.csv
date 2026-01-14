@@ -19,27 +19,27 @@
 
 # Cometa
 
-"FP-Cometa-Crescita","Fondo Pensione Cometa - Comparto Crescita","cometa"
-# "FP-Cometa-MonetarioPlus","Fondo Pensione Cometa - Comparto Monetario Plus","cometa"
-# "FP-Cometa-Sicurezza","Fondo Pensione Cometa - Comparto Sicurezza","cometa"
+"0P0000ADYJ","Fondo Pensione Cometa - Comparto Crescita","cometa"
+"0P0000ADRN","Fondo Pensione Cometa - Comparto Monetario Plus","cometa"
+"0P0000ADYI","Fondo Pensione Cometa - Comparto Sicurezza","cometa"
 
 # Secondapensione
 
-# "QS0000003560","SecondaPensione Prudente ESG","secondapensione"
-# "QS0000003564","SecondaPensione Sviluppo ESG","secondapensione"
-# "QS0000013033","SecondaPensione Garantita ESG","secondapensione"
+"QS0000003560","SecondaPensione Prudente ESG","secondapensione"
+"QS0000003564","SecondaPensione Sviluppo ESG","secondapensione"
+"QS0000013033","SecondaPensione Garantita ESG","secondapensione"
 "QS0000003561","SecondaPensione Espansione ESG","secondapensione"
-# "QS0000003562","SecondaPensione Bilanciata ESG","secondapensione"
+"QS0000003562","SecondaPensione Bilanciata ESG","secondapensione"
 
 # Allianz Insieme
 
-# "0P0000CWYZ","Allianz Insieme - Linea Flessibile","allianzinsieme"
-# "0P00017EGO","Allianz Insieme - Linea Obbligazionaria Breve Termine","allianzinsieme"
-# "0P00017EGP","Allianz Insieme - Linea Obbligazionaria Lungo Termine","allianzinsieme"
-# "0P0000CX0R","Allianz Insieme - Linea Obbligazionaria","allianzinsieme"
+"0P0000CWYZ","Allianz Insieme - Linea Flessibile","allianzinsieme"
+"0P00017EGO","Allianz Insieme - Linea Obbligazionaria Breve Termine","allianzinsieme"
+"0P00017EGP","Allianz Insieme - Linea Obbligazionaria Lungo Termine","allianzinsieme"
+"0P0000CX0R","Allianz Insieme - Linea Obbligazionaria","allianzinsieme"
 "0P0000CWZR","Allianz Insieme - Linea Azionaria","allianzinsieme"
-# "0P0000CWZ4","Allianz Insieme - Linea Bilanciata","allianzinsieme"
-# "0P00017EGQ","Allianz Insieme - Linea Multi Asset","allianzinsieme"
+"0P0000CWZ4","Allianz Insieme - Linea Bilanciata","allianzinsieme"
+"0P00017EGQ","Allianz Insieme - Linea Multi Asset","allianzinsieme"
 
 # Fon.Te.
 
