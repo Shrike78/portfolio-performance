@@ -68,9 +68,13 @@ func (s *AllianzInsieme) LoadQuotes() ([]security.Quote, error) {
 	form := url.Values{}
 	// curr_id is the real identifier of the fund
 	form.Set("curr_id", isinToCurrId[s.ISIN()])
-	form.Set("st_date", "25/01/2016")
-	form.Set("end_date", "14/01/2026")
-	form.Set("interval_sec", "Monthly")
+	//force a far away date as start
+	form.Set("st_date", "01/01/2001")
+	//take 'now' as end date
+	now := time.Now()
+	end_date := now.Format("02/01/2006")
+	form.Set("end_date", end_date)
+	form.Set("interval_sec", "Daily")
 
 	// Build request
 	req, err := http.NewRequest("POST", endpoint, bytes.NewBufferString(form.Encode()))
@@ -150,7 +154,8 @@ func (s *AllianzInsieme) LoadQuotes() ([]security.Quote, error) {
 			return strconv.ParseFloat(s, 32)
 		}
 
-		rawDate = fmt.Sprintf("15.%s", rawDate)
+		//no more needed if retrieval is done per day
+		//rawDate = fmt.Sprintf("15.%s", rawDate)
 
 		date, err := time.Parse("02.01.2006", rawDate)
 		if err != nil {
