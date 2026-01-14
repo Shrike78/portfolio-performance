@@ -1,6 +1,8 @@
 package allianzinsieme
 
 import (
+	"fmt"
+
 	"github.com/shrike78/portfolio-perfomance/pkg/security"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/investingcom"
 )
@@ -37,6 +39,6 @@ func (e *AllianzInsieme) ISIN() string {
 
 func (s *AllianzInsieme) LoadQuotes() ([]security.Quote, error) {
 	var investingComLoader security.QuoteLoader
-	investingComLoader = investingcom.New(s.name, s.isin, isinToCurrId[s.isin])
+	investingComLoader = investingcom.New(s.name, fmt.Sprintf("%s.%s", s.isin, isinToCurrId[s.isin]))
 	return investingComLoader.LoadQuotes()
 }

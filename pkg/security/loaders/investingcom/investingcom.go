@@ -21,11 +21,14 @@ type InvestingCom struct {
 	curr_id string
 }
 
-func New(name, isin, curr_id string) *InvestingCom {
+func New(name, isin string) *InvestingCom {
+
+	isin_curr_id := strings.Split(isin, ".")
+
 	return &InvestingCom{
 		name:    name,
-		isin:    isin,
-		curr_id: curr_id,
+		isin:    isin_curr_id[0],
+		curr_id: isin_curr_id[1],
 	}
 }
 

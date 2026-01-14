@@ -1,6 +1,8 @@
 package secondapensione
 
 import (
+	"fmt"
+
 	"github.com/shrike78/portfolio-perfomance/pkg/security"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/investingcom"
 )
@@ -35,6 +37,6 @@ func (e *SecondaPensione) ISIN() string {
 
 func (s *SecondaPensione) LoadQuotes() ([]security.Quote, error) {
 	var investingComLoader security.QuoteLoader
-	investingComLoader = investingcom.New(s.name, s.isin, isinToCurrId[s.isin])
+	investingComLoader = investingcom.New(s.name, fmt.Sprintf("%s.%s", s.isin, isinToCurrId[s.isin]))
 	return investingComLoader.LoadQuotes()
 }

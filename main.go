@@ -128,11 +128,7 @@ func writeQuotesToFile(filename string, quotes []security.Quote) error {
 	if err != nil {
 		return fmt.Errorf("error opening file [%s]: %s", filename, err.Error())
 	}
-	/*	err = file.Truncate(0)
-		if err != nil {
-			return fmt.Errorf("error truncating file [%s]: %s", filename, err.Error())
-		}
-	*/
+
 	if _, err = file.Write(jsonOutput); err != nil {
 		return fmt.Errorf("error writing to file [%s]: %s", filename, err.Error())
 	}
@@ -176,7 +172,7 @@ func loadSecuritiesFromCSV(path string) error {
 		case "allianzinsieme":
 			quoteLoader = allianzinsieme.New(name, isin)
 		case "investing.com":
-			quoteLoader = investingcom.New(name, isin, line[3])
+			quoteLoader = investingcom.New(name, isin)
 		}
 
 		if quoteLoader == nil {
