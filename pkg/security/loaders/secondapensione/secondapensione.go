@@ -12,6 +12,15 @@ import (
 	"github.com/shrike78/portfolio-perfomance/pkg/security"
 )
 
+/*
+Investing.com - ISIN: Curr_ID
+Amundi SecondaPensione Espansione ESG	- 0P0000CWZD: 1078538
+Amundi SecondaPensione Prudente ESG		- 0P0000CWZE: 1078581
+Amundi SecondaPensione Garantita ESG 	- 0P0000CX0O: 1078593
+Amundi SecondaPensione Bilanciata ESG 	- 0P0000CWZJ: 1078582
+Amundi SecondaPensione Sviluppo ESG 	- 0P0000CWZY: 1078585
+*/
+
 type SecondaPensione struct {
 	name string
 	isin string

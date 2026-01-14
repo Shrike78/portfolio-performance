@@ -10,6 +10,13 @@ import (
 	"github.com/shrike78/portfolio-perfomance/pkg/security"
 )
 
+/*
+Investing.com - ISIN: Curr_ID
+Cometa Crescita 		- 0P0000ADYJ: 1055574
+Cometa Monetario Plus 	- 0P0000ADRN: 1055575
+Cometa Reddito			- 0P0000ADYI: 1055576
+*/
+
 var cometaSubURLMap = map[string]string{
 	"FP-Cometa-Crescita":      "crescita",
 	"FP-Cometa-MonetarioPlus": "monetario-plus",
