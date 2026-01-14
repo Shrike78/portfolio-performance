@@ -11,13 +11,10 @@ import (
 
 	"github.com/charmbracelet/log"
 	"github.com/shrike78/portfolio-perfomance/pkg/security"
-	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/allianzinsieme"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/borsaitaliana"
-	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/cometa"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/fondidoc"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/investingcom"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/raiffeisench"
-	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/secondapensione"
 )
 
 func main() {
@@ -163,14 +160,8 @@ func loadSecuritiesFromCSV(path string) error {
 			quoteLoader = borsaitaliana.New(name, isin)
 		case "raiffeisench":
 			quoteLoader = raiffeisench.New(name, isin)
-		case "secondapensione":
-			quoteLoader = secondapensione.New(name, isin)
 		case "fondidoc":
 			quoteLoader = fondidoc.New(name, isin)
-		case "cometa":
-			quoteLoader = cometa.New(name, isin)
-		case "allianzinsieme":
-			quoteLoader = allianzinsieme.New(name, isin)
 		case "investing.com":
 			quoteLoader = investingcom.New(name, isin)
 		}

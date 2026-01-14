@@ -2,7 +2,6 @@
 # Borsa Italiana
 ###################
 
-
 # BTP
 
 "IT0005583486.MOT","Btp Valore Sc Mz30 Eur","borsaitaliana"
@@ -13,29 +12,32 @@
 "XS1967674521.MCW.I05228","IS EP CP EUROSTOXX SEL D 2045.32 300426","borsaitaliana"
 
 ###################
-# Fondi pensione
+# Investing.com
 ###################
+# Investing.com securities need a ISIN.Curr_ID definition (based on gethistorycaldata call on website)
+# isin is used only for json history data name. The curr_id is the real data used for quote retrieval
 
-# Cometa
+# Fondo Pensione Cometa
 
-"0P0000ADYJ","Fondo Pensione Cometa - Comparto Crescita","cometa"
-"0P0000ADRN","Fondo Pensione Cometa - Comparto Monetario Plus","cometa"
-"0P0000ADYI","Fondo Pensione Cometa - Comparto Sicurezza","cometa"
+"0P0000ADYJ.1055574","Fondo Pensione Cometa - Comparto Crescita","investing.com"
+# "0P0000ADRN.1055575","Fondo Pensione Cometa - Comparto Monetario Plus","investing.com"
+# "0P0000ADYI.1055576","Fondo Pensione Cometa - Comparto Sicurezza","investing.com"
 
 # Secondapensione
+# usa i codici originali di amundi
 
-"QS0000003560","SecondaPensione Prudente ESG","secondapensione"
-"QS0000003564","SecondaPensione Sviluppo ESG","secondapensione"
-"QS0000013033","SecondaPensione Garantita ESG","secondapensione"
-"QS0000003561","SecondaPensione Espansione ESG","secondapensione"
-"QS0000003562","SecondaPensione Bilanciata ESG","secondapensione"
+# "QS0000003560.1078581","SecondaPensione Prudente ESG","investing.com"
+# "QS0000003564.1078585","SecondaPensione Sviluppo ESG","investing.com"
+# "QS0000013033.1078593","SecondaPensione Garantita ESG","investing.com"
+"QS0000003561.1078538","SecondaPensione Espansione ESG","investing.com"
+# "QS0000003562.1078582","SecondaPensione Bilanciata ESG","investing.com"
 
 # Allianz Insieme
 
-"0P0000CWYZ","Allianz Insieme - Linea Flessibile","allianzinsieme"
-"0P00017EGO","Allianz Insieme - Linea Obbligazionaria Breve Termine","allianzinsieme"
-"0P00017EGP","Allianz Insieme - Linea Obbligazionaria Lungo Termine","allianzinsieme"
-"0P0000CX0R","Allianz Insieme - Linea Obbligazionaria","allianzinsieme"
-"0P0000CWZR","Allianz Insieme - Linea Azionaria","allianzinsieme"
-"0P0000CWZ4","Allianz Insieme - Linea Bilanciata","allianzinsieme"
-"0P00017EGQ","Allianz Insieme - Linea Multi Asset","allianzinsieme"
+# "0P0000CWYZ.1078533","Allianz Insieme - Linea Flessibile","investing.com"
+# "0P00017EGO.1078140","Allianz Insieme - Linea Obbligazionaria Breve Termine","investing.com"
+# "0P00017EGP.1077906","Allianz Insieme - Linea Obbligazionaria Lungo Termine","investing.com"
+# "0P0000CX0R.1078595","Allianz Insieme - Linea Obbligazionaria","investing.com"
+"0P0000CWZR.1078584","Allianz Insieme - Linea Azionaria","investing.com"
+# "0P0000CWZ4.1078534","Allianz Insieme - Linea Bilanciata","investing.com"
+# "0P00017EGQ.1077905","Allianz Insieme - Linea Multi Asset","investing.com"
