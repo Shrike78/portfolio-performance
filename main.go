@@ -122,15 +122,18 @@ func writeQuotesToFile(filename string, quotes []security.Quote) error {
 		return fmt.Errorf("error marshaling file [%s]: %s", filename, err.Error())
 	}
 
-	file, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
+	//force to open with the O_TRUNC parameter in order to truncate when opening
+	//this way it works also on Windows, while opening with append and then truncate
+	//would result in an access denied error
+	file, err := os.OpenFile(filename, os.O_TRUNC|os.O_WRONLY|os.O_CREATE, 0644)
 	if err != nil {
 		return fmt.Errorf("error opening file [%s]: %s", filename, err.Error())
 	}
-	err = file.Truncate(0)
-	if err != nil {
-		return fmt.Errorf("error truncating file [%s]: %s", filename, err.Error())
-	}
-
+	/*	err = file.Truncate(0)
+		if err != nil {
+			return fmt.Errorf("error truncating file [%s]: %s", filename, err.Error())
+		}
+	*/
 	if _, err = file.Write(jsonOutput); err != nil {
 		return fmt.Errorf("error writing to file [%s]: %s", filename, err.Error())
 	}
