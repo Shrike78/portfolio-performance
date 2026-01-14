@@ -17,12 +17,14 @@ import (
 
 type InvestingCom struct {
 	name    string
+	isin    string
 	curr_id string
 }
 
-func New(name, curr_id string) *InvestingCom {
+func New(name, isin, curr_id string) *InvestingCom {
 	return &InvestingCom{
 		name:    name,
+		isin:    isin,
 		curr_id: curr_id,
 	}
 }
@@ -32,6 +34,10 @@ func (e *InvestingCom) Name() string {
 }
 
 func (e *InvestingCom) ISIN() string {
+	return e.isin
+}
+
+func (e *InvestingCom) Curr_Id() string {
 	return e.curr_id
 }
 
@@ -57,8 +63,6 @@ func (s *InvestingCom) LoadQuotes() ([]security.Quote, error) {
 	if err != nil {
 		panic(fmt.Errorf("new request: %v", err))
 	}
-
-	//refererUrl := fmt.Sprintf("https://m.it.investing.com/funds/allianz-insieme-linea-%s-historical-data", s.subURL)
 
 	// Required headers (mirroring your curl)
 	req.Header.Set("Accept", "text/html, */*; q=0.01")
@@ -129,9 +133,6 @@ func (s *InvestingCom) LoadQuotes() ([]security.Quote, error) {
 			s = strings.TrimSuffix(s, "%")
 			return strconv.ParseFloat(s, 32)
 		}
-
-		//no more needed if retrieval is done per day
-		//rawDate = fmt.Sprintf("15.%s", rawDate)
 
 		date, err := time.Parse("02.01.2006", rawDate)
 		if err != nil {

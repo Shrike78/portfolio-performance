@@ -15,6 +15,7 @@ import (
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/borsaitaliana"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/cometa"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/fondidoc"
+	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/investingcom"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/raiffeisench"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/secondapensione"
 )
@@ -174,6 +175,8 @@ func loadSecuritiesFromCSV(path string) error {
 			quoteLoader = cometa.New(name, isin)
 		case "allianzinsieme":
 			quoteLoader = allianzinsieme.New(name, isin)
+		case "investing.com":
+			quoteLoader = investingcom.New(name, isin, line[3])
 		}
 
 		if quoteLoader == nil {

@@ -37,6 +37,6 @@ func (e *AllianzInsieme) ISIN() string {
 
 func (s *AllianzInsieme) LoadQuotes() ([]security.Quote, error) {
 	var investingComLoader security.QuoteLoader
-	investingComLoader = investingcom.New(s.name, isinToCurrId[s.isin])
+	investingComLoader = investingcom.New(s.name, s.isin, isinToCurrId[s.isin])
 	return investingComLoader.LoadQuotes()
 }
