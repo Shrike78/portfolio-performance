@@ -5,11 +5,16 @@
 # BTP
 
 "IT0005583486.MOT","Btp Valore Sc Mz30 Eur","borsaitaliana"
+# può essere gestito anche tramite investing.com
+# "IT0005583486.1212094","Btp Valore Sc Mz30 Eur","investing.com"
+
 
 # Certificates
 # For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
 
 "XS1967674521.MCW.I05228","IS EP CP EUROSTOXX SEL D 2045.32 300426","borsaitaliana"
+# può essere gestito anche tramite investing.com
+# "XS1967674521.1141500","IS EP CP EUROSTOXX SEL D 2045.32 300426","investing.com"
 
 ###################
 # Investing.com
