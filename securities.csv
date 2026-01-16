@@ -1,32 +1,48 @@
 ###################
-# Borsa Italiana
+# Loaders / Instructions
 ###################
 
-# BTP
-
-"IT0005583486.MOT","Btp Valore Sc Mz30 Eur","borsaitaliana"
-# può essere gestito anche tramite investing.com
-# "IT0005583486.1212094","Btp Valore Sc Mz30 Eur","investing.com"
-
-
-# Certificates
+# borsaitaliana
 # For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
+# For BTP and other titles it requires to add the .MOT suffix to the isin code
 
-"XS1967674521.MCW.I05228","IS EP CP EUROSTOXX SEL D 2045.32 300426","borsaitaliana"
-# può essere gestito anche tramite investing.com
-# "XS1967674521.1141500","IS EP CP EUROSTOXX SEL D 2045.32 300426","investing.com"
-
-###################
-# Investing.com
-###################
+# investing.com
 # Investing.com securities need a ISIN.Curr_ID definition (based on gethistorycaldata call on website)
 # isin is used only for json history data name. The curr_id is the real data used for quote retrieval
 
+
+# cometa
+# secondapensione
+# raiffeisench
+# fondidoc
+
+
+###################
+# BTP
+###################
+
+# può essere gestito anche tramite investing.com: IT0005583486.1212094
+"IT0005583486.MOT","Btp Valore Sc Mz30 Eur","borsaitaliana"
+
+
+###################
+# Certificates
+###################
+# For the certificates you need to add the .MCW suffix and the alphanumeric code to the ISIN code
+
+# può essere gestito anche tramite investing.com: XS1967674521.1141500
+"XS1967674521.MCW.I05228","IS EP CP EUROSTOXX SEL D 2045.32 300426","borsaitaliana"
+
+###################
+# Fondi Pensione
+###################
+
 # Fondo Pensione Cometa
 
-"0P0000ADYJ.1055574","Fondo Pensione Cometa - Comparto Crescita","investing.com"
-# "0P0000ADRN.1055575","Fondo Pensione Cometa - Comparto Monetario Plus","investing.com"
-# "0P0000ADYI.1055576","Fondo Pensione Cometa - Comparto Sicurezza","investing.com"
+"0P0000ADYJ","Fondo Pensione Cometa - Comparto Crescita","cometa"
+# "0P0000ADRN","Fondo Pensione Cometa - Comparto Monetario Plus","cometa"
+# "0P0000ADYI","Fondo Pensione Cometa - Comparto Sicurezza","cometa"
+
 
 # Secondapensione
 # usa i codici originali di amundi
