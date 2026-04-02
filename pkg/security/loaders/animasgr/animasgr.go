@@ -14,24 +14,32 @@ import (
 )
 
 const (
-	fundCodeACRA    = "ACRA"
 	pageSize        = 100
 	maxPages        = 200
-	quotePageURL    = "https://www.animasgr.it/IT/Prodotti/Scheda/?codFondo=ACRA"
+	quotePageURL    = "https://www.animasgr.it/IT/Prodotti/Scheda/?codFondo=%s"
 	detailNavURL    = "https://www.animasgr.it/it/Funds/_DetailNav"
 	requestTimeout  = 20 * time.Second
 	quoteDateLayout = "02.01.06"
 )
 
 type AnimaSGR struct {
-	name string
-	isin string
+	name     string
+	isin     string
+	fundCode string
 }
 
 func New(name, isin string) *AnimaSGR {
+	parts := strings.SplitN(isin, ".", 2)
+	resolvedISIN := strings.TrimSpace(parts[0])
+	resolvedFundCode := resolvedISIN
+	if len(parts) == 2 && strings.TrimSpace(parts[1]) != "" {
+		resolvedFundCode = strings.TrimSpace(parts[1])
+	}
+
 	return &AnimaSGR{
-		name: name,
-		isin: isin,
+		name:     name,
+		isin:     resolvedISIN,
+		fundCode: resolvedFundCode,
 	}
 }
 
@@ -83,7 +91,7 @@ func (s *AnimaSGR) LoadQuotes() ([]security.Quote, error) {
 }
 
 func (s *AnimaSGR) fetchAvailableDateRange() (string, string, error) {
-	body, err := fetchPage(quotePageURL)
+	body, err := fetchPage(fmt.Sprintf(quotePageURL, s.fundCode))
 	if err != nil {
 		return "", "", fmt.Errorf("request ANIMA quote page for %s: %w", s.isin, err)
 	}
@@ -109,7 +117,7 @@ func (s *AnimaSGR) fetchAvailableDateRange() (string, string, error) {
 func (s *AnimaSGR) fetchQuotePage(startDate, endDate string, page int) ([]security.Quote, error) {
 	params := url.Values{}
 	params.Set("idLanguage", "it")
-	params.Set("id", fundCodeACRA)
+	params.Set("id", s.fundCode)
 	params.Set("dataInizio", startDate)
 	params.Set("dataFine", endDate)
 	params.Set("numeroPagina", strconv.Itoa(page))
