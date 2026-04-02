@@ -24,7 +24,7 @@ func main() {
 		log.SetLevel(log.DebugLevel)
 	}
 
-	err := loadSecuritiesFromCSV("securities.csv")
+	orderedISINs, err := loadSecuritiesFromCSV("securities.csv")
 	if err != nil {
 		log.Errorf("loading securities from CSV: %s", err)
 		os.Exit(1)
@@ -32,7 +32,8 @@ func main() {
 
 	log.Infof("loaded %d securities", len(security.Securities))
 
-	for isin, f := range security.Securities {
+	for _, isin := range orderedISINs {
+		f := security.Securities[isin]
 		start := time.Now().In(time.UTC)
 
 		log.Infof("[%s] loading quotes for '%s'", f.ISIN(), f.Name())
@@ -135,10 +136,10 @@ func writeQuotesToFile(filename string, quotes []security.Quote) error {
 	return nil
 }
 
-func loadSecuritiesFromCSV(path string) error {
+func loadSecuritiesFromCSV(path string) ([]string, error) {
 	f, err := os.Open(path)
 	if err != nil {
-		return fmt.Errorf("opening file [%s]: %w", path, err)
+		return nil, fmt.Errorf("opening file [%s]: %w", path, err)
 	}
 	defer f.Close()
 
@@ -148,8 +149,10 @@ func loadSecuritiesFromCSV(path string) error {
 
 	data, err := csvReader.ReadAll()
 	if err != nil {
-		return fmt.Errorf("reading csv: %w", err)
+		return nil, fmt.Errorf("reading csv: %w", err)
 	}
+
+	orderedISINs := make([]string, 0, len(data))
 
 	for _, line := range data {
 		isin := line[0]
@@ -178,7 +181,8 @@ func loadSecuritiesFromCSV(path string) error {
 		}
 
 		security.Register(quoteLoader)
+		orderedISINs = append(orderedISINs, quoteLoader.ISIN())
 	}
 
-	return nil
+	return orderedISINs, nil
 }
