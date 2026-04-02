@@ -11,6 +11,7 @@ import (
 
 	"github.com/charmbracelet/log"
 	"github.com/shrike78/portfolio-perfomance/pkg/security"
+	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/animasgr"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/borsaitaliana"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/cometa"
 	"github.com/shrike78/portfolio-perfomance/pkg/security/loaders/fondidoc"
@@ -161,6 +162,8 @@ func loadSecuritiesFromCSV(path string) ([]string, error) {
 
 		var quoteLoader security.QuoteLoader
 		switch loader {
+		case "animasgr":
+			quoteLoader = animasgr.New(name, isin)
 		case "borsaitaliana":
 			quoteLoader = borsaitaliana.New(name, isin)
 		case "raiffeisench":
