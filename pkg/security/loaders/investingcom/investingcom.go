@@ -8,6 +8,7 @@ import (
 	"net"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"strings"
 	"time"
@@ -181,9 +182,7 @@ func (s *InvestingCom) fetchHistoricalData(client *http.Client) ([]byte, error) 
 
 	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
 		if resp.StatusCode == http.StatusForbidden && looksLikeCloudflareChallenge(body) {
-			return nil, retryableError{
-				err: fmt.Errorf("investing.com blocked the request with a Cloudflare challenge for %s", s.isin),
-			}
+			return nil, newCloudflareBlockedError(s.isin, resp, body)
 		}
 		if resp.StatusCode == http.StatusTooManyRequests || resp.StatusCode >= 500 {
 			return nil, retryableError{
@@ -195,9 +194,7 @@ func (s *InvestingCom) fetchHistoricalData(client *http.Client) ([]byte, error) 
 	}
 
 	if looksLikeCloudflareChallenge(body) {
-		return nil, retryableError{
-			err: fmt.Errorf("investing.com returned a Cloudflare challenge page for %s", s.isin),
-		}
+		return nil, newCloudflareBlockedError(s.isin, resp, body)
 	}
 
 	return body, nil
@@ -212,6 +209,18 @@ func (e retryableError) Error() string {
 }
 
 func (e retryableError) Unwrap() error {
+	return e.err
+}
+
+type cloudflareBlockedError struct {
+	err error
+}
+
+func (e cloudflareBlockedError) Error() string {
+	return e.err.Error()
+}
+
+func (e cloudflareBlockedError) Unwrap() error {
 	return e.err
 }
 
@@ -230,6 +239,26 @@ func looksLikeCloudflareChallenge(body []byte) bool {
 	return strings.Contains(content, "just a moment") ||
 		strings.Contains(content, "enable javascript and cookies to continue") ||
 		strings.Contains(content, "cf_chl_opt")
+}
+
+func newCloudflareBlockedError(isin string, resp *http.Response, body []byte) error {
+	message := fmt.Sprintf("investing.com blocked the request with a Cloudflare challenge for %s", isin)
+
+	if resp != nil {
+		if cfRay := strings.TrimSpace(resp.Header.Get("cf-ray")); cfRay != "" {
+			message = fmt.Sprintf("%s (cf-ray: %s)", message, cfRay)
+		}
+	}
+
+	if os.Getenv("GITHUB_ACTIONS") == "true" {
+		message = fmt.Sprintf("%s; GitHub-hosted runner IPs are likely being challenged, so this usually cannot be solved with extra headers alone. Use a self-hosted runner, a trusted proxy, or a different data source for CI", message)
+	} else {
+		message = fmt.Sprintf("%s; the source is asking for a browser challenge and the request cannot continue programmatically from this environment", message)
+	}
+
+	return cloudflareBlockedError{
+		err: errors.New(message),
+	}
 }
 
 func truncateBody(body []byte) string {
