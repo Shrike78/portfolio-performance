@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/gocolly/colly/v2"
@@ -12,14 +13,23 @@ import (
 )
 
 type FondiDoc struct {
-	name string
-	isin string
+	name     string
+	isin     string
+	fidacode string
 }
 
 func New(name, isin string) *FondiDoc {
+	parts := strings.SplitN(isin, ".", 2)
+	resolvedISIN := parts[0]
+	resolvedFIDACode := ""
+	if len(parts) == 2 {
+		resolvedFIDACode = parts[1]
+	}
+
 	return &FondiDoc{
-		name: name,
-		isin: isin,
+		name:     name,
+		isin:     resolvedISIN,
+		fidacode: resolvedFIDACode,
 	}
 }
 
@@ -39,15 +49,22 @@ func (f *FondiDoc) ISIN() string {
 
 // LoadQuotes implements security.Fund
 func (f *FondiDoc) LoadQuotes() ([]security.Quote, error) {
-	c := colly.NewCollector()
+	fidacode := f.fidacode
+	if fidacode == "" {
+		c := colly.NewCollector()
+		c.OnHTML("a[fidacode]", func(e *colly.HTMLElement) {
+			if fidacode == "" {
+				fidacode = e.Attr("fidacode")
+			}
+		})
 
-	var fidacode string
-	c.OnHTML("a[fidacode]", func(e *colly.HTMLElement) {
-		fidacode = e.Attr("fidacode")
-	})
+		if err := c.Visit("https://www.fondidoc.it/Ricerca/Res?txt=" + f.isin); err != nil {
+			return nil, err
+		}
+	}
 
-	if err := c.Visit("https://www.fondidoc.it/Ricerca/Res?txt=" + f.isin); err != nil {
-		return nil, err
+	if fidacode == "" {
+		return nil, fmt.Errorf("unable to resolve FondiDoc fidacode for %s", f.isin)
 	}
 
 	res, err := http.Get("https://www.fondidoc.it/Chart/ChartData?ids=" + fidacode + "&cur=EUR")
