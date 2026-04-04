@@ -48,6 +48,13 @@
 ## Secondapensione
 # usa i codici originali di amundi
 
+# versione "secondapensione"
+# "QS0000003560","SecondaPensione Prudente ESG","secondapensione"
+# "QS0000003564","SecondaPensione Sviluppo ESG","secondapensione"
+# "QS0000013033","SecondaPensione Garantita ESG","secondapensione"
+"QS0000003561","SecondaPensione Espansione ESG","secondapensione"
+# "QS0000003562","SecondaPensione Bilanciata ESG","secondapensione"
+
 # versione "investing.com"
 # "QS0000003560.1078581","SecondaPensione Prudente ESG","investing.com"
 # "QS0000003564.1078585","SecondaPensione Sviluppo ESG","investing.com"
@@ -55,12 +62,13 @@
 # "QS0000003561.1078538","SecondaPensione Espansione ESG","investing.com"
 # "QS0000003562.1078582","SecondaPensione Bilanciata ESG","investing.com"
 
-# versione "secondapensione"
-# "QS0000003560","SecondaPensione Prudente ESG","secondapensione"
-# "QS0000003564","SecondaPensione Sviluppo ESG","secondapensione"
-# "QS0000013033","SecondaPensione Garantita ESG","secondapensione"
-"QS0000003561","SecondaPensione Espansione ESG","secondapensione"
-# "QS0000003562","SecondaPensione Bilanciata ESG","secondapensione"
+# versione fondidoc
+# "QS0000003560.SEPEDI","SecondaPensione Prudente ESG","fondidoc"
+# "QS0000003564.SEPESVI","SecondaPensione Sviluppo ESG","fondidoc"
+# "QS0000013033.SECGAR","SecondaPensione Garantita ESG","fondidoc"
+# "QS0000003561.SEPEESP","SecondaPensione Espansione ESG","fondidoc"
+# "QS0000003562.SEPEPRO","SecondaPensione Bilanciata ESG","fondidoc"
+
 
 ## Allianz Insieme
 
@@ -85,6 +93,13 @@
 
 ## Anima Arti & Mestieri
 
+# versione "animasgr"
+"0P0000CQ3K.ACRA","Anima Arti & Mestieri Crescita 25+ A","animasgr"
+# "0P0000CQ3L.ARIA","Anima Arti & Mestieri Rivalutazione 10+ A","animasgr"
+# "0P0000CQ3N.ACOA","Anima Arti & Mestieri Conservazione 3+ A","animasgr"
+# "0P0000Z04V.AEQA","Anima Arti & Mestieri Equilibrio 5+ A","animasgr"
+# "0P0000CQ3O.AGAA","Anima Arti & Mestieri Garanzia 1+ A","animasgr"
+
 # versione investing.com
 # "0P0000CQ3K.1078529","Anima Arti & Mestieri Crescita 25+ A","investing.com"
 # "0P0000CQ3L.1078530","Anima Arti & Mestieri Rivalutazione 10+ A","investing.com"
@@ -92,9 +107,8 @@
 # "0P0000Z04V.1077477","Anima Arti & Mestieri Equilibrio 5+ A","investing.com"
 # "0P0000CQ3O.1078531","Anima Arti & Mestieri Garanzia 1+ A","investing.com"
 
-# versione "animasgr"
-"0P0000CQ3K.ACRA","Anima Arti & Mestieri Crescita 25+ A","animasgr"
-# "0P0000CQ3L.ARIA","Anima Arti & Mestieri Rivalutazione 10+ A","animasgr"
-# "0P0000CQ3N.ACOA","Anima Arti & Mestieri Conservazione 3+ A","animasgr"
-# "0P0000Z04V.AEQA","Anima Arti & Mestieri Equilibrio 5+ A","animasgr"
-# "0P0000CQ3O.AGAA","Anima Arti & Mestieri Garanzia 1+ A","animasgr"
+# versione "fondiDoc"
+# "0P0000CQ3K.BICREA","Anima Arti & Mestieri Crescita 25+ A","fondidoc"
+# "0P0000CQ3L.BIVALA","Anima Arti & Mestieri Rivalutazione 10+ A","fondidoc"
+
+
