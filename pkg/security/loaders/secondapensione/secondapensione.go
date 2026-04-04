@@ -128,7 +128,7 @@ func (s *SecondaPensione) LoadQuotes() ([]security.Quote, error) {
 
 	// Access fields
 	for _, item := range items {
-		fmt.Println("NAV History:")
+		//fmt.Println("NAV History:")
 		for _, nav := range item.NavHistory {
 			//fmt.Printf("  %s -> %.3f\n", nav.Date, nav.Value)
 			date, err := time.Parse("2006-01-02", nav.Date)
